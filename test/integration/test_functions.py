@@ -73,7 +73,7 @@ def display_image_8bpp(display):
 
     img = Image.open(img_path)
 
-    img = img.resample(angle=90,expand=True,reshape=Image.BICUBIC)
+    img = img.rotate(angle=90,expand=True,resample=Image.BICUBIC)
 
     # TODO: this should be built-in
     dims = (display.width, display.height)
