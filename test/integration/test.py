@@ -44,8 +44,8 @@ def main():
     tests += [
         clear_display,
         display_gradient
-       #partial_update,
-       #display_image_8bpp,
+       # partial_update,
+       # display_image_8bpp,
     ]
 
     for t in tests:
