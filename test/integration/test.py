@@ -45,7 +45,7 @@ def main():
         clear_display,
        # display_gradient
        # partial_update,
-       display_image_8bpp
+       display_objects
     ]
 
     for t in tests:

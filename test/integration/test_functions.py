@@ -14,7 +14,8 @@ __all__ = [
     'clear_display',
     'display_gradient',
     'display_image_8bpp',
-    'partial_update'
+    'partial_update',
+    'display_objects'
 ]
 
 from PIL import Image, ImageDraw, ImageFont
@@ -99,6 +100,13 @@ def partial_update(display):
     _place_text(display.frame_buf, 'update', x_offset=+display.width//4)
     display.draw_partial(constants.DisplayModes.DU)
 
+def display_objects(display):
+    print('Displaying my objects...')
+
+    box = (50, 50, 100, 100)
+    display.frame_buf.paste(0xCC, box=box)
+    display.draw_full(constants.DisplayModes.GC16)
+
 # this function is just a helper for the others
 def _place_text(img, text, x_offset=0, y_offset=0):
     '''
@@ -121,3 +129,6 @@ def _place_text(img, text, x_offset=0, y_offset=0):
     draw_y = (img_height - text_height)//2 + y_offset
 
     draw.text((draw_x, draw_y), text, font=font)
+
+
+
