@@ -103,15 +103,30 @@ def partial_update(display):
 def display_objects(display):
     print('Displaying my objects...')
 
-    for i in range(10):
+    for i in range(16):
         color = i*0x10
-        box = (i*100+50, 50, 100, 100)
-        display.frame_buf.paste(color, box=box)
-    
-    box = (1000, 50, 200, 200)
-    display.frame_buf.paste(0x77, box=box)
+        box = (
+            i*display.width//16,      # xmin
+            0,                        # ymin
+            (i+1)*display.width//16,  # xmax
+            display.height            # ymax
+        )
 
+        display.frame_buf.paste(color, box=box)
+
+    # update display
     display.draw_full(constants.DisplayModes.GC16)
+    
+
+    #for i in range(10):
+    #    color = i*0x10
+    #    box = (i*100+50, 50, 100, 100)
+    #    display.frame_buf.paste(color, box=box)
+    
+    #box = (1000, 50, 200, 200)
+    #display.frame_buf.paste(0x77, box=box)
+
+    #display.draw_full(constants.DisplayModes.GC16)
 
 # this function is just a helper for the others
 def _place_text(img, text, x_offset=0, y_offset=0):
