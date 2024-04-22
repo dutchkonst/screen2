@@ -120,10 +120,10 @@ def display_objects(display):
 
     for i in range(10):
         color = i*0x10
-        box = (i*100+50, 50, i*100+50, 100)
+        box = (i*100+50, 50, i*100+100, 100)
         display.frame_buf.paste(color, box=box)
     
-    box = (1100, 50, 1150, 200)
+    box = (1100, 150, 1150, 200)
     display.frame_buf.paste(0x77, box=box)
 
     display.draw_full(constants.DisplayModes.GC16)
