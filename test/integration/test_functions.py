@@ -15,7 +15,8 @@ __all__ = [
     'display_gradient',
     'display_image_8bpp',
     'partial_update',
-    'display_objects'
+    'display_box',
+    'draw_line'
 ]
 
 from PIL import Image, ImageDraw, ImageFont
@@ -100,23 +101,8 @@ def partial_update(display):
     _place_text(display.frame_buf, 'update', x_offset=+display.width//4)
     display.draw_partial(constants.DisplayModes.DU)
 
-def display_objects(display):
-    print('Displaying my objects...')
-
-    #for i in range(16):
-    #    color = i*0x10
-    #    box = (
-    #        i*100+50,      # xmin
-    #        50,                        # ymin
-    #        (i+1)*display.width//16,  # xmax
-    #        display.height            # ymax
-    #    )
-
-    #    display.frame_buf.paste(color, box=box)
-
-    # update display
-    #display.draw_full(constants.DisplayModes.GC16)
-    
+def display_box(display):
+    print('Displaying colored boxed...')
 
     for i in range(10):
         color = i*0x10
@@ -127,6 +113,24 @@ def display_objects(display):
     display.frame_buf.paste(0x77, box=box)
 
     display.draw_full(constants.DisplayModes.GC16)
+
+def draw_line(display):
+    print('Drawing the line...')
+
+    w = display.epd.width;
+    h = display.epd.height;
+    shape = [(40, 40), (w - 10, h - 10)] 
+
+    # creating new Image object 
+    img = Image.new("RGB", (w, h));
+    
+    # create line image 
+    img1 = ImageDraw.Draw(img)   
+    img1.line(shape, fill ="none", width = 0) 
+
+    display.frame_buf.paste(img1)
+    display.draw_full(constants.DisplayModes.GC16)
+    
 
 # this function is just a helper for the others
 def _place_text(img, text, x_offset=0, y_offset=0):
