@@ -126,7 +126,7 @@ def draw_line(display):
     
     # create line image 
     img1 = ImageDraw.Draw(img)   
-    img1.line(shape, fill ="red", width = 0) 
+    img1.line(shape, fill ="white", width = 3) 
 
     display.frame_buf.paste(img)
     display.draw_full(constants.DisplayModes.GC16)
