@@ -156,7 +156,7 @@ def draw_line_1bit(display):
 
         shape = [(40 + 10 * (i+1), 40), (w - (10 * (i+1)), h - 10)]
 
-        img1.line(shape2, fill ="black", width = 3) 
+        img1.line(shape, fill ="black", width = 3) 
 
         display.frame_buf.paste(img)
         display.draw_full(constants.DisplayModes.DU)
