@@ -138,30 +138,22 @@ def draw_line_1bit(display):
     w = display.epd.width;
     h = display.epd.height;
     shape = [(40, 40), (w - 10, h - 10)] 
-     
-    for i in range(10):
-        oldshape = shape
-
-        # creating new Image object 
-        img = Image.new("1", (w, h), color="white");
     
+    # creating new Image object 
+    img = Image.new("1", (w, h), color="white");
+
+    for i in range(10):
+
         # create line image 
         img1 = ImageDraw.Draw(img)   
-        img1.line(shape1, fill ="black", width = 3) 
+        img1.line(shape, fill ="black", width = 3) 
 
         display.frame_buf.paste(img)
         display.draw_full(constants.DisplayModes.DU)
 
         img1.line(shape, fill ="white", width = 3) 
 
-        shape = [(40 + 10 * (i+1), 40), (w - (10 * (i+1)), h - 10)]
-
-        img1.line(shape, fill ="black", width = 3) 
-
-        display.frame_buf.paste(img)
-        display.draw_full(constants.DisplayModes.DU)
-    
-    
+        shape = [(40 + 10 * (i+1), 40), (w - (10 * (i+1)), h - 10)]    
 
 # this function is just a helper for the others
 def _place_text(img, text, x_offset=0, y_offset=0):
