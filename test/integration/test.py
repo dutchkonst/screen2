@@ -45,7 +45,7 @@ def main():
         clear_display,
        # display_gradient
        # partial_update,
-       draw_line
+       draw_line_1bit
     ]
 
     for t in tests:
