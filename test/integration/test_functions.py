@@ -142,7 +142,7 @@ def draw_line_1bit(display):
     # creating new Image object 
     img = Image.new("1", (w, h), color="white");
 
-    for i in range(10):
+    for i in range(100):
 
         # create line image 
         img1 = ImageDraw.Draw(img)   
