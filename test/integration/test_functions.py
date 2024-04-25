@@ -16,7 +16,8 @@ __all__ = [
     'display_image_8bpp',
     'partial_update',
     'display_box',
-    'draw_line'
+    'draw_line',
+    'draw_line_1bit'
 ]
 
 from PIL import Image, ImageDraw, ImageFont
@@ -127,6 +128,23 @@ def draw_line(display):
     # create line image 
     img1 = ImageDraw.Draw(img)   
     img1.line(shape, fill ="white", width = 3) 
+
+    display.frame_buf.paste(img)
+    display.draw_full(constants.DisplayModes.GC16)
+
+def draw_line_1bit(display):
+    print('Drawing the 1 bit line...')
+
+    w = display.epd.width;
+    h = display.epd.height;
+    shape = [(40, 40), (w - 10, h - 10)] 
+
+    # creating new Image object 
+    img = Image.new("1", (w, h), color="white");
+    
+    # create line image 
+    img1 = ImageDraw.Draw(img)   
+    img1.line(shape, fill ="black", width = 3) 
 
     display.frame_buf.paste(img)
     display.draw_full(constants.DisplayModes.GC16)
