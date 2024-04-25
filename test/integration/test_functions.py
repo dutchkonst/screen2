@@ -147,7 +147,7 @@ def draw_line_1bit(display):
     img1.line(shape, fill ="black", width = 3) 
 
     display.frame_buf.paste(img)
-    display.draw_full(constants.DisplayModes.GC16)
+    display.draw_full(constants.DisplayModes.DU)
     
 
 # this function is just a helper for the others
