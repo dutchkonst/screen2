@@ -137,17 +137,25 @@ def draw_line_1bit(display):
 
     w = display.epd.width;
     h = display.epd.height;
-    shape = [(40, 40), (w - 10, h - 10)] 
+    shape1 = [(40, 40), (w - 10, h - 10)] 
+    shape2 = [(50, 40), (w - 20, h - 10)] 
 
     # creating new Image object 
     img = Image.new("1", (w, h), color="white");
     
     # create line image 
     img1 = ImageDraw.Draw(img)   
-    img1.line(shape, fill ="black", width = 3) 
+    img1.line(shape1, fill ="black", width = 3) 
 
     display.frame_buf.paste(img)
     display.draw_full(constants.DisplayModes.DU)
+
+    img1.line(shape1, fill ="white", width = 3) 
+    img1.line(shape2, fill ="black", width = 3) 
+
+    display.frame_buf.paste(img)
+    display.draw_full(constants.DisplayModes.DU)
+    
     
 
 # this function is just a helper for the others
