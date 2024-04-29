@@ -145,11 +145,12 @@ def draw_line_1bit(display):
     for i in range(100):
 
         # create line image 
-        img1 = ImageDraw.Draw(img)   
+        img1 = ImageDraw.Draw(display.frame_buf)   
         img1.line(shape, fill ="black", width = 3) 
 
-        display.frame_buf.paste(img)
-        display.draw_full(constants.DisplayModes.DU)
+        # display.frame_buf.paste(img)
+        # display.draw_full(constants.DisplayModes.DU)
+        display.draw_partial(constants.DisplayModes.DU)
 
         img1.line(shape, fill ="white", width = 3) 
 
