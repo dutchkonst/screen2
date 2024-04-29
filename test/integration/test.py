@@ -34,7 +34,7 @@ def main():
         display = AutoEPDDisplay(vcom=-2.07, rotate=args.rotate, mirror=args.mirror, spi_hz=24000000)
 
         print('VCOM set to', display.epd.get_vcom())
-        print('Hz is 80K')
+        print('Hz is 24K')
 
         tests += [print_system_info]
 
