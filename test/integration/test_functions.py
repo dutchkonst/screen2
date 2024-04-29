@@ -150,7 +150,7 @@ def draw_line_1bit(display):
 
         # display.frame_buf.paste(img)
         # display.draw_full(constants.DisplayModes.DU)
-        display.draw_partial(constants.DisplayModes.DU)
+        display.draw_partial(constants.DisplayModes.A2)
 
         img1.line(shape, fill ="white", width = 3) 
 
