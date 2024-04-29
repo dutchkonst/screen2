@@ -137,7 +137,7 @@ def draw_line_1bit(display):
 
     w = display.epd.width;
     h = display.epd.height;
-    shape = [(40, 40), (w - 10, h - 10)] 
+    shape = [(40, 40), (w - 10, 60)] 
     
     # creating new Image object 
     img = Image.new("1", (w, h), color="white");
@@ -154,7 +154,7 @@ def draw_line_1bit(display):
 
         img1.line(shape, fill ="white", width = 3) 
 
-        shape = [(40 + 10 * (i+1), 40), (w - (10 * (i+1)), h - 10)]    
+        shape = [(40 + 10 * (i+1), 40), (w - (10 * (i+1)), 60)]    
 
 # this function is just a helper for the others
 def _place_text(img, text, x_offset=0, y_offset=0):
